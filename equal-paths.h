@@ -27,6 +27,7 @@ struct Node {
  * 
  * @param root Pointer to the root of the tree to check for equal paths
  */
+
 bool equalPaths(Node * root);
 
 #endif
