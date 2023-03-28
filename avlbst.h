@@ -186,7 +186,8 @@ void AVLTree<Key, Value>::insert(const std::pair<const Key, Value> &new_item)
         return;
       }
     }
-    newNode->parent_ = parentNode;
+    //newNode->parent_ = parentNode;
+    newNode->setParent(parentNode);
     newNode->setBalance(0);
     if(parentNode->getKey() > newNode->getKey()){
       parentNode->setLeft(newNode);
@@ -398,14 +399,14 @@ void AVLTree<Key, Value>::remove(const Key& key)
         }
         else{
           
-            if(remove_node->parent_->getLeft() == remove_node){
+            if(remove_node->getParent()->getLeft() == remove_node){
               diff = 1;
-              remove_node->parent_->setLeft(nullptr);
+              remove_node->getParent()->setLeft(nullptr);
             // delete remove_node;
             }
-            else if(remove_node->parent_->getRight() == remove_node){
+            else if(remove_node->getParent()->getRight() == remove_node){
               diff = -1;
-              remove_node->parent_->setRight(nullptr);
+              remove_node->getParent()->setRight(nullptr);
             // delete remove_node;
             }
           
